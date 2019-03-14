@@ -22,7 +22,7 @@
     <ProjectGuid>{88F9CD6C-BF6D-473B-A4A0-EDB1C7F57C62}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>furikuri</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -30,6 +30,7 @@
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v141</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
+    <SpectreMitigation>false</SpectreMitigation>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
@@ -37,12 +38,14 @@
     <PlatformToolset>v141</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
+    <SpectreMitigation>false</SpectreMitigation>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v141</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
+    <SpectreMitigation>false</SpectreMitigation>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
@@ -50,6 +53,7 @@
     <PlatformToolset>v141</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
+    <SpectreMitigation>false</SpectreMitigation>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
@@ -147,51 +151,124 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="fuku_asm.h" />
-    <ClInclude Include="fuku_asm_x64.h" />
-    <ClInclude Include="fuku_asm_x86.h" />
-    <ClInclude Include="fuku_bolrand_map.h" />
     <ClInclude Include="fuku_code_analyzer.h" />
-    <ClInclude Include="fuku_code_holder.h" />
-    <ClInclude Include="fuku_debug_info.h" />
-    <ClInclude Include="fuku_map.h" />
-    <ClInclude Include="fuku_msvc_map.h" />
+    <ClInclude Include="fuku_code_profiler.h" />
+    <ClInclude Include="fuku_code_utilits.h" />
+    <ClInclude Include="fuku_code_utilits_conv_tables.h" />
     <ClInclude Include="fuku_mutation_imp.h" />
-    <ClInclude Include="fuku_pdb.h" />
-    <ClInclude Include="fuku_protector.h" />
-    <ClInclude Include="fuku_prot_ob.h" />
-    <ClInclude Include="fuku_prot_vm.h" />
-    <ClInclude Include="fuku_tds.h" />
+    <ClInclude Include="fuku_mutation_x64_junk.h" />
+    <ClInclude Include="fuku_mutation_x64_rules.h" />
+    <ClInclude Include="fuku_mutation_x86_junk.h" />
+    <ClInclude Include="fuku_mutation_x86_rules.h" />
+    <ClInclude Include="fuku_protect_mgr.h" />
+    <ClInclude Include="fuku_protect_obfuscator_mgr.h" />
+    <ClInclude Include="fuku_protect_virtualizer_mgr.h" />
+    <ClInclude Include="fuku_settings_obfuscation.h" />
+    <ClInclude Include="fuku_settings_virtualization.h" />
     <ClInclude Include="fuku_virtualizer_imp.h" />
     <ClInclude Include="fuku_virtualization_x64.h" />
     <ClInclude Include="fuku_virtualization_x86.h" />
-    <ClInclude Include="fuku_vm_instruction.h" />
     <ClInclude Include="furikuri.h" />
     <ClInclude Include="fuku_obfuscator.h" />
-    <ClInclude Include="fuku_instruction.h" />
     <ClInclude Include="fuku_mutation_x64.h" />
     <ClInclude Include="fuku_mutation_x86.h" />
+    <ClInclude Include="obf_templates\x64\obf_x64_adc_templates.h" />
+    <ClInclude Include="obf_templates\x64\obf_x64_add_templates.h" />
+    <ClInclude Include="obf_templates\x64\obf_x64_and_templates.h" />
+    <ClInclude Include="obf_templates\x64\obf_x64_bsf_templates.h" />
+    <ClInclude Include="obf_templates\x64\obf_x64_bsr_templates.h" />
+    <ClInclude Include="obf_templates\x64\obf_x64_btc_templates.h" />
+    <ClInclude Include="obf_templates\x64\obf_x64_btr_templates.h" />
+    <ClInclude Include="obf_templates\x64\obf_x64_bts_templates.h" />
+    <ClInclude Include="obf_templates\x64\obf_x64_bt_templates.h" />
+    <ClInclude Include="obf_templates\x64\obf_x64_call_templates.h" />
+    <ClInclude Include="obf_templates\x64\obf_x64_cmp_templates.h" />
+    <ClInclude Include="obf_templates\x64\obf_x64_dec_templates.h" />
+    <ClInclude Include="obf_templates\x64\obf_x64_div_templates.h" />
+    <ClInclude Include="obf_templates\x64\obf_x64_idiv_templates.h" />
+    <ClInclude Include="obf_templates\x64\obf_x64_imul_templates.h" />
+    <ClInclude Include="obf_templates\x64\obf_x64_inc_templates.h" />
+    <ClInclude Include="obf_templates\x64\obf_x64_jcc_templates.h" />
+    <ClInclude Include="obf_templates\x64\obf_x64_jmp_templates.h" />
+    <ClInclude Include="obf_templates\x64\obf_x64_lea_templates.h" />
+    <ClInclude Include="obf_templates\x64\obf_x64_mov_templates.h" />
+    <ClInclude Include="obf_templates\x64\obf_x64_mul_templates.h" />
+    <ClInclude Include="obf_templates\x64\obf_x64_neg_templates.h" />
+    <ClInclude Include="obf_templates\x64\obf_x64_not_templates.h" />
+    <ClInclude Include="obf_templates\x64\obf_x64_or_templates.h" />
+    <ClInclude Include="obf_templates\x64\obf_x64_pop_templates.h" />
+    <ClInclude Include="obf_templates\x64\obf_x64_push_templates.h" />
+    <ClInclude Include="obf_templates\x64\obf_x64_rcl_templates.h" />
+    <ClInclude Include="obf_templates\x64\obf_x64_rcr_templates.h" />
+    <ClInclude Include="obf_templates\x64\obf_x64_ret_templates.h" />
+    <ClInclude Include="obf_templates\x64\obf_x64_rol_templates.h" />
+    <ClInclude Include="obf_templates\x64\obf_x64_ror_templates.h" />
+    <ClInclude Include="obf_templates\x64\obf_x64_sar_templates.h" />
+    <ClInclude Include="obf_templates\x64\obf_x64_sbb_templates.h" />
+    <ClInclude Include="obf_templates\x64\obf_x64_shl_templates.h" />
+    <ClInclude Include="obf_templates\x64\obf_x64_shr_templates.h" />
+    <ClInclude Include="obf_templates\x64\obf_x64_sub_templates.h" />
+    <ClInclude Include="obf_templates\x64\obf_x64_test_templates.h" />
+    <ClInclude Include="obf_templates\x64\obf_x64_xchg_templates.h" />
+    <ClInclude Include="obf_templates\x64\obf_x64_xor_templates.h" />
+    <ClInclude Include="obf_templates\x86\obf_x86_adc_templates.h" />
+    <ClInclude Include="obf_templates\x86\obf_x86_add_templates.h" />
+    <ClInclude Include="obf_templates\x86\obf_x86_and_templates.h" />
+    <ClInclude Include="obf_templates\x86\obf_x86_bsf_templates.h" />
+    <ClInclude Include="obf_templates\x86\obf_x86_bsr_templates.h" />
+    <ClInclude Include="obf_templates\x86\obf_x86_btc_templates.h" />
+    <ClInclude Include="obf_templates\x86\obf_x86_btr_templates.h" />
+    <ClInclude Include="obf_templates\x86\obf_x86_bts_templates.h" />
+    <ClInclude Include="obf_templates\x86\obf_x86_bt_templates.h" />
+    <ClInclude Include="obf_templates\x86\obf_x86_call_templates.h" />
+    <ClInclude Include="obf_templates\x86\obf_x86_cmp_templates.h" />
+    <ClInclude Include="obf_templates\x86\obf_x86_dec_templates.h" />
+    <ClInclude Include="obf_templates\x86\obf_x86_div_templates.h" />
+    <ClInclude Include="obf_templates\x86\obf_x86_idiv_templates.h" />
+    <ClInclude Include="obf_templates\x86\obf_x86_imul_templates.h" />
+    <ClInclude Include="obf_templates\x86\obf_x86_inc_templates.h" />
+    <ClInclude Include="obf_templates\x86\obf_x86_jcc_templates.h" />
+    <ClInclude Include="obf_templates\x86\obf_x86_jmp_templates.h" />
+    <ClInclude Include="obf_templates\x86\obf_x86_lea_templates.h" />
+    <ClInclude Include="obf_templates\x86\obf_x86_mul_templates.h" />
+    <ClInclude Include="obf_templates\x86\obf_x86_neg_templates.h" />
+    <ClInclude Include="obf_templates\x86\obf_x86_not_templates.h" />
+    <ClInclude Include="obf_templates\x86\obf_x86_or_templates.h" />
+    <ClInclude Include="obf_templates\x86\obf_x86_pop_templates.h" />
+    <ClInclude Include="obf_templates\x86\obf_x86_push_templates.h" />
+    <ClInclude Include="obf_templates\x86\obf_x86_rcl_templates.h" />
+    <ClInclude Include="obf_templates\x86\obf_x86_rcr_templates.h" />
+    <ClInclude Include="obf_templates\x86\obf_x86_ret_templates.h" />
+    <ClInclude Include="obf_templates\x86\obf_x86_rol_templates.h" />
+    <ClInclude Include="obf_templates\x86\obf_x86_ror_templates.h" />
+    <ClInclude Include="obf_templates\x86\obf_x86_sar_templates.h" />
+    <ClInclude Include="obf_templates\x86\obf_x86_sbb_templates.h" />
+    <ClInclude Include="obf_templates\x86\obf_x86_shl_templates.h" />
+    <ClInclude Include="obf_templates\x86\obf_x86_shr_templates.h" />
+    <ClInclude Include="obf_templates\x86\obf_x86_sub_templates.h" />
+    <ClInclude Include="obf_templates\x86\obf_x86_mov_templates.h" />
+    <ClInclude Include="obf_templates\x86\obf_x86_test_templates.h" />
+    <ClInclude Include="obf_templates\x86\obf_x86_xchg_templates.h" />
+    <ClInclude Include="obf_templates\x86\obf_x86_xor_templates.h" />
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="fuku_asm_x64.cpp" />
-    <ClCompile Include="fuku_asm_x86.cpp" />
-    <ClCompile Include="fuku_bolrand_map.cpp" />
     <ClCompile Include="fuku_code_analyzer.cpp" />
-    <ClCompile Include="fuku_code_holder.cpp" />
-    <ClCompile Include="fuku_map.cpp" />
-    <ClCompile Include="fuku_msvc_map.cpp" />
+    <ClCompile Include="fuku_code_profiler.cpp" />
+    <ClCompile Include="fuku_code_utilits.cpp" />
     <ClCompile Include="fuku_mutation_x64.cpp" />
+    <ClCompile Include="fuku_mutation_x64_junk.cpp" />
+    <ClCompile Include="fuku_mutation_x64_rules.cpp" />
     <ClCompile Include="fuku_mutation_x86.cpp" />
-    <ClCompile Include="fuku_pdb.cpp" />
-    <ClCompile Include="fuku_protector.cpp" />
-    <ClCompile Include="fuku_tds.cpp" />
+    <ClCompile Include="fuku_mutation_x86_junk.cpp" />
+    <ClCompile Include="fuku_mutation_x86_rules.cpp" />
+    <ClCompile Include="fuku_protect_mgr.cpp" />
+    <ClCompile Include="fuku_settings_obfuscation.cpp" />
+    <ClCompile Include="fuku_settings_virtualization.cpp" />
     <ClCompile Include="fuku_virtualization_x64.cpp" />
     <ClCompile Include="fuku_virtualization_x86.cpp" />
-    <ClCompile Include="fuku_vm_instruction.cpp" />
     <ClCompile Include="furikuri.cpp" />
     <ClCompile Include="fuku_obfuscator.cpp" />
-    <ClCompile Include="fuku_instruction.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
